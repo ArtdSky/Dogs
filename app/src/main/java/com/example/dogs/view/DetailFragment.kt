@@ -15,6 +15,8 @@ class DetailFragment : Fragment() {
     private var _binding : FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
+    private var dogUuid = 0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,6 +28,12 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        arguments?.let {
+            dogUuid = it.getInt("dogUuid", 0)
+            binding.textView2.text = dogUuid.toString()
+        }
+
         binding.buttonList.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.actionListFragment)
         }

@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavAction
+import androidx.navigation.NavDestination
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import com.example.dogs.R
 import com.example.dogs.databinding.FragmentListBinding
@@ -20,7 +23,7 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflate the layout for thi5s fragment
         _binding = FragmentListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -28,7 +31,9 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonDetails.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.actionDetailFragment)
+            val bundle = Bundle()
+            bundle.putInt("dogUuid",5)
+            Navigation.findNavController(it).navigate(R.id.actionDetailFragment, bundle)
         }
     }
 
