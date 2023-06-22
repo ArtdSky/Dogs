@@ -31,12 +31,9 @@ class DetailFragment : Fragment() {
 
         arguments?.let {
             dogUuid = it.getInt("dogUuid", 0)
-            binding.textView2.text = dogUuid.toString()
         }
 
-        binding.buttonList.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.actionListFragment)
-        }
+
     }
 
 }
