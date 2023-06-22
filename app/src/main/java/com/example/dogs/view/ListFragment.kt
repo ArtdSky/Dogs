@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.Navigation
 import com.example.dogs.R
 import com.example.dogs.databinding.FragmentListBinding
 
@@ -28,7 +28,7 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonDetails.setOnClickListener {
-            findNavController().navigate(R.id.actionDetailFragment)
+            Navigation.findNavController(it).navigate(R.id.actionDetailFragment)
         }
     }
 
